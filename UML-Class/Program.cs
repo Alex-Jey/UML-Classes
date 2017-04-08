@@ -10,18 +10,28 @@ namespace UML_Class
      class Client //Base
         {
             //Нужен список функций из ТЗ
-            protected string DobavilUopta;
-            //
-            public string NameClient { get; set; }
+
+            private byte[] _memoryBuffer;
+            private bool _serverConnected; 
+            private DateTime _connectionStartTime;
+          
+            public string Name { get; set; }
             public string DeviceID { get; set; }
-            public byte[] MemoryBuffer { get; set; }
-
-            public void AcceptData(string IP)
+            public int IP { get; set; }
+            public strting MAC { get; set; }
+            public string AccessToken{ private get; set; }          
+         
+            public Client()
             {
-
+                 
+            }
+            
+            public void AcceptData(string IP) // че это такое вообще? 
+            {
+               
             }
 
-            public bool ConnectToServer(string IP)
+            public bool ConnectToServer(string AccessToken)
             {
                 return true;
             }
@@ -35,8 +45,26 @@ namespace UML_Class
             {
                 return true;
             }
+          
+            public void SendErrorMessage()
+            {
+                 
+            }
         }
 
+        //////////////////////////////////////////////можно описать ряд исключений как для клиента так и для сервера
+        class ClientException
+        {
+             public string exMessage;
+             public DateTime exHappendTime;
+        }
+     
+        class ServerDisconnectException: ClientException
+        {
+          
+        }
+        //////////////////////////////////////////////исключения клиента конец//////////////////////////////////////////////
+        
         class MobileClient : Client //Расплодим
         {
 
@@ -65,10 +93,10 @@ namespace UML_Class
         DataAnalyzer DataAnalyze; //Обработка данных с датчиков
         Cryptor ServerCryptSystem; //Угадайте что
         Journal Logs; //История
-            bool CheckSensor(Sensor sensor) { return true; }
+        bool CheckSensor(Sensor sensor) { return true; }
 
-            string GenerateToken(Client client) { return "Token"; }
-            void ReciveData(Client client) { } //Слушаем клиента подключенного
+        string GenerateToken(Client client) { return "Token"; }
+        void ReciveData(Client client) { } //Слушаем клиента подключенного
         }
 
         class Journal
