@@ -10,7 +10,8 @@ namespace UML_Class
      class Client //Base
         {
             //Нужен список функций из ТЗ
-
+            protected string DobavilUopta;
+            //
             public string NameClient { get; set; }
             public string DeviceID { get; set; }
             public byte[] MemoryBuffer { get; set; }
