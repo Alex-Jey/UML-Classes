@@ -1,89 +1,153 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="UML_Class.Client">
-    <Position X="0.5" Y="0.5" Width="2" />
+    <Position X="1.25" Y="0.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAgAAAAAAAAAAAAAAACAQIAQAAAAAAEAAAAAA=</HashCode>
+      <HashCode>AQAAABAAAAAAAAAAAAABAAYAMAQAAYAAAgAAEAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UML_Class.MobileClient">
-    <Position X="0.5" Y="4.25" Width="1.5" />
+    <Position X="0.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UML_Class.DestopClient">
-    <Position X="2.25" Y="4.25" Width="1.5" />
+    <Position X="2.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UML_Class.Comand">
-    <Position X="5.25" Y="0.5" Width="1.5" />
+    <Position X="7" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UML_Class.Server">
-    <Position X="8.75" Y="0.5" Width="1.5" />
+    <Position X="7.25" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAAEAAAACAAAAAAACAoAAAQAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAABQAEAAAACAAgAAAACAoAAAQAAAAAAAAAEAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="DataAnalyze" />
+      <Field Name="Logs" />
+      <Field Name="ServerCryptSystem" />
+      <Field Name="Signalization" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="UML_Class.Journal">
-    <Position X="2.75" Y="1" Width="2.25" />
+    <Position X="4.25" Y="3" Width="2.25" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Struct Name="UML_Class.Journal.Log" Collapsed="true">
+      <Struct Name="UML_Class.Journal.Log">
         <TypeIdentifier>
           <NewMemberFileName>Program.cs</NewMemberFileName>
         </TypeIdentifier>
       </Struct>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAAAAIEAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAgAAAAAAAAAAAJEAAAAAAAAABAAAAAEAAAAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="UML_Class.Sensor">
-    <Position X="4" Y="4.25" Width="1.5" />
+  <Class Name="UML_Class.BaseSensor">
+    <Position X="17.5" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAIAAAAIAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UML_Class.DataAnalyzer">
-    <Position X="7" Y="2.5" Width="1.5" />
+    <Position X="9.75" Y="3" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UML_Class.Cryptor">
-    <Position X="7" Y="0.5" Width="1.5" />
+    <Position X="7.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAACAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UML_Class.Packet">
-    <Position X="5.25" Y="2.25" Width="1.5" />
+    <Position X="19.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAQAAAAAAQA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="UML_Class.Program" Collapsed="true">
-    <Position X="8.5" Y="5.75" Width="1.5" />
+  <Class Name="UML_Class.ClientException">
+    <Position X="1.75" Y="6" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UML_Class.ServerDisconnectException">
+    <Position X="0.5" Y="7.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UML_Class.DeviceLock">
+    <Position X="15" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAQAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UML_Class.SignalizationSystem">
+    <Position X="13" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAQAAAAAABAAAAAAAAABAEIAAABFAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="SystemNotification" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="AllLocks" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="UML_Class.UserNotification">
+    <Position X="11.25" Y="7" Width="2" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAABAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UML_Class.VoltageSensor" Collapsed="true">
+    <Position X="16" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAIAAAAAAAAAAAAAAAEAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UML_Class.SmokeDetector" Collapsed="true">
+    <Position X="17.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAIAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UML_Class.MotionDetector" Collapsed="true">
+    <Position X="19.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>

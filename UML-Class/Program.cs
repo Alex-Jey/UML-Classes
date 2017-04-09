@@ -18,7 +18,7 @@ namespace UML_Class
             public string Name { get; set; }
             public string DeviceID { get; set; }
             public int IP { get; set; }
-            public strting MAC { get; set; }
+            public string MAC { get; set; }
             public string AccessToken{ private get; set; }          
          
             public Client()
@@ -26,11 +26,6 @@ namespace UML_Class
                  
             }
             
-            public void AcceptData(string IP) // че это такое вообще? 
-            {
-               
-            }
-
             public bool ConnectToServer(string AccessToken)
             {
                 return true;
@@ -75,7 +70,6 @@ namespace UML_Class
 
         }
 
-
         class Comand //Заворачиваем команду из байт в пакет
         {
             byte[] Events;
@@ -93,14 +87,20 @@ namespace UML_Class
         DataAnalyzer DataAnalyze; //Обработка данных с датчиков
         Cryptor ServerCryptSystem; //Угадайте что
         Journal Logs; //История
-        bool CheckSensor(Sensor sensor) { return true; }
+        bool CheckSensor(BaseSensor sensor) { return true; }
 
         string GenerateToken(Client client) { return "Token"; }
         void ReciveData(Client client) { } //Слушаем клиента подключенного
+
+        SignalizationSystem Signalization; //Система сигнализации
+
         }
 
         class Journal
         {
+
+        List<Log> DataBase;
+
             struct Log
             {
                 Int64 IDLog;
@@ -113,37 +113,118 @@ namespace UML_Class
             void WriteLog(Log log) { }
             Log FindLog(DateTime date, int IDLog = 0) { return new Log(); }
             Log LastChanges() { return new Log(); }
-            Server RestoreServerConfiguration(DateTime date, int IDLog = 0) { return new Server(new byte[0]); } //Вернуть состояние серва по логам
+
+        public void ShowJournal() { }
+
+           public Server RestoreServerConfiguration(DateTime date, int IDLog = 0) { return new Server(new byte[0]); } //Вернуть состояние серва по логам
         }
 
-        class Sensor //Датчик
+       abstract class BaseSensor //Датчик сделаем абстрактным
         {
-            string SensorID;
+           abstract public string SensorID { get; set; }
             Dictionary<string, int> Params; //Имя датчика --зн-е
-            void SendSensorState(Server server) { } //Кидаем серверу, там этим занимается DataAnalyzer
+        abstract public void SendSensorState(Server server); //Кидаем серверу, там этим занимается DataAnalyzer
         }
 
-        class DataAnalyzer // Анализ данных с датчика
+    class SmokeDetector : BaseSensor
+    {
+        Dictionary<string, int> Params; //Имя датчика --зн-е
+
+        public override string SensorID
         {
-            Dictionary<Sensor, List<int>> NormalValueDiapasonl;
-
-            int AnalyzeSensor(Sensor CurrentSensor) { int Risk = 0; return Risk; }
+            get; set;       
         }
 
-        class Cryptor //Шифровка 
+        public override void SendSensorState(Server server)
+        {
+        }
+    }
+
+    class MotionDetector : BaseSensor
+    {
+        public override string SensorID
+        {
+            get; set;
+        }
+
+        public override void SendSensorState(Server server)
+        {
+            
+        }
+
+    }
+
+    class VoltageSensor : BaseSensor
+    {
+        int CriticalLevel;
+        int CurrentLevel;
+        public override string SensorID
+        {
+            get; set;
+        }
+        public override void SendSensorState(Server server)
+        {
+            
+        }
+    }
+
+    class DataAnalyzer // Анализ данных с датчика
+        {
+            Dictionary<BaseSensor, List<int>> NormalValueDiapasonl;
+
+            int AnalyzeSensor(BaseSensor CurrentSensor) { int Risk = 0; return Risk; }
+        }
+
+    class Cryptor //Шифровка 
         {
             public byte[] Key; //Кто хочет поуминчать, где должен быть ключ?
             public byte[] EncryptData(byte[] Data) { return new byte[0]; }
             public byte[] DecryptData(byte[] Data) { return new byte[0]; }
         }
 
-        class Packet
+       static class Packet
         {
-            public byte[] Header = new byte[8];
-            public byte[] Protocol = new byte[16];
-            public byte[] SorceIP = new byte[32];
-            public byte[] DestinationIP = new byte[32];
+        static public byte[] Header = new byte[8];
+        static public byte[] Protocol = new byte[16];
+        static public byte[] SorceIP = new byte[32];
+        static public byte[] DestinationIP = new byte[32];
         }
+
+    /// <summary>
+    /// Класс моей части сигналки
+    /// </summary>
+    class DeviceLock
+    {
+      public string IDLock; //Имя замка
+      public bool StateLock { get; set; } //Состояние
+      public  string TechDescription;    
+    }
+
+    class SignalizationSystem
+    {
+        bool State; //OnOff
+        List<DeviceLock> AllLocks; //Замки дома
+        List<string> NumberPhonesToAlarm; //Номера для звонков в случае тревоги
+        public bool TurnOnAllarm(BaseSensor speaker = null) //Включить сирену
+        {
+            return true;
+        }
+        public void CallEmergency(string number) //Звоним в службы
+        { }
+     
+        public void BlockAllHome() { } //Весь дом
+        void BlockLock(DeviceLock Lock) { } //Конкретный замок
+        void SendNotification() { }
+        UserNotification SystemNotification;
+    }
+
+    class UserNotification //оповещения
+    {
+        string Description; //что
+        Client UserName; //кому
+        UserNotification(string Description ="", string UserName="User") { } //формиурем
+        void SendNotification(Client client) { } //отсылаем
+    }
 
 
     class Program
