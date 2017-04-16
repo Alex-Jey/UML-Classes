@@ -182,7 +182,7 @@ namespace UML_Class
             public byte[] DecryptData(byte[] Data) { return new byte[0]; }
         }
 
-       static class Packet
+    class Package
         {
         static public byte[] Header = new byte[8];
         static public byte[] Protocol = new byte[16];
@@ -225,6 +225,41 @@ namespace UML_Class
         UserNotification(string Description ="", string UserName="User") { } //формиурем
         void SendNotification(Client client) { } //отсылаем
     }
+
+    /// <summary>
+    /// Херачь сюда коммуникации 
+    /// </summary>
+
+
+
+    class Camera
+    {
+        int Port { get; set; }
+        string Name { get; set; }
+        bool State { get; set; }
+        int CurrentAngle { get; set; }
+        byte[] Buffer;
+
+        void RecieveVideo() { }
+        int SearchVideo(string param) { return 0} 
+        void SendVideo(List<Package> info) { }
+        public void TurnState(bool state) { }
+        public void MoveAngle(int delta) { }
+        
+    }
+
+    class VideoSystem
+
+    {
+
+        byte[] HDD;
+        List<Camera> LinkedCamers;
+        Journal VideoArchive = new Journal();
+        void TurnOnOff(Camera camera, bool state) { }
+        void MoveCamere(Camera camera, int angle) { }
+
+    }
+
 
 
     class Program
